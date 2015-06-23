@@ -1,0 +1,2 @@
+Acquire::http::Proxy "http://@@HTTP_PROXY_HOST:@@HTTP_PROXY_PORT";
+Acquire::https::Proxy "http://@@HTTPS_PROXY_HOST:@@HTTPS_PROXY_PORT";

@@ -1,0 +1,12 @@
+<settings>
+  <proxies>
+   <proxy>
+      <id>http-proxy</id>
+      <active>true</active>
+      <protocol>http</protocol>
+      <host>@@HTTP_PROXY_HOST</host>
+      <port>@@HTTP_PROXY_PORT</port>
+      <nonProxyHosts>@@MAVEN_NO_PROXY</nonProxyHosts>
+    </proxy>
+  </proxies>
+</settings>
