@@ -1,7 +1,7 @@
-############################################################
-# Dockerfile to build base ubuntu container images for RIS
-# Based on Ubuntu
-############################################################
+######################################################################
+# Dockerfile to build base ubuntu container with corp proxy settings
+# Based on Ubuntu Utopic
+######################################################################
 
 # Set the base image to Ubuntu utopic
 FROM ubuntu:utopic
