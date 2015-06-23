@@ -63,11 +63,13 @@ RUN /usr/local/bin/apply-config.sh /root/pip/pip.conf
 RUN mv /usr/bin/gpg /usr/bin/gpg.cont
 ADD ./gpg-replacement /usr/bin/gpg
 RUN /usr/local/bin/apply-config.sh /usr/bin/gpg
+RUN chmod 755 /usr/bin/gpg
 
 # Setup alias for apt-key with proxy
 RUN mv /usr/bin/apt-key /usr/bin/apt-key.cont
 ADD ./apt-key-replacement /usr/bin/apt-key
 RUN /usr/local/bin/apply-config.sh /usr/bin/apt-key
+RUN chmod 755 /usr/bin/apt-key
 
 # Setup the GlusterFS repo bits (if you want to use glusterfs client in your machines)
 #RUN echo "deb http://ppa.launchpad.net/gluster/glusterfs-3.6/ubuntu utopic main" >> /etc/apt/sources.list.d/glusterfs-3.6.list
