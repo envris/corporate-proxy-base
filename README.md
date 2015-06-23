@@ -4,7 +4,7 @@ corporate proxy settings that can be then inherited (via FROM) for use in
 subsequent application container builds.
 
 #### Building the container
-To build the container image, simply substitute the Cproxy___C strings within
+To build the container image, simply substitute the `Cproxy___C` strings within
 the Dockerfile with your correct settings. Then build like any other container:
 
 ```
