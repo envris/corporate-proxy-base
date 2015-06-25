@@ -11,7 +11,7 @@ the Dockerfile with your correct settings. Then build like any other container:
 docker build --rm=true -t your-registry/my-base:latest .
 ```
 
-#### apply-config.sh
+#### Using apply-config.sh
 The apply-config script is copied into /usr/local/bin/, and so is available
 to applications during their installation process. The script will substitute
 configuration values into designated config files that have place-holder
