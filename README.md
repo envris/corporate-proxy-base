@@ -25,7 +25,8 @@ into files (or folders recursively) where placeholders are present.
 Usage:
 
 An install script should invoke apply-config, as it need only be run once
-per container instance.
+per container instance. However, the script could also be invoked within the
+actual Dockerfile for distributing environment you want baked into a layer.
 
 If the docker run command is given ETCD_HOST and ETCD_DIR environment variables,
 as well as --volumes-from etcd_conf (where etcd_conf is a data-only container
