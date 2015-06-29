@@ -23,10 +23,10 @@ ENV __MAVEN_NO_PROXY CmavennoproxyC
 ENV DEBIAN_FRONTEND noninteractive
 
 # Setup the http/https proxy environment vars
-ENV HTTP_PROXY http://${HTTP_PROXY_HOST}:${HTTP_PROXY_PORT}
-ENV HTTPS_PROXY http://${HTTPS_PROXY_HOST}:${HTTPS_PROXY_PORT}
-ENV http_proxy http://${HTTP_PROXY_HOST}:${HTTP_PROXY_PORT}
-ENV https_proxy http://${HTTPS_PROXY_HOST}:${HTTPS_PROXY_PORT}
+ENV HTTP_PROXY http://${__HTTP_PROXY_HOST}:${__HTTP_PROXY_PORT}
+ENV HTTPS_PROXY http://${__HTTPS_PROXY_HOST}:${__HTTPS_PROXY_PORT}
+ENV http_proxy http://${__HTTP_PROXY_HOST}:${__HTTP_PROXY_PORT}
+ENV https_proxy http://${__HTTPS_PROXY_HOST}:${__HTTPS_PROXY_PORT}
 
 # Config the datetime
 RUN rm -f /etc/localtime
