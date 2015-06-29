@@ -36,10 +36,6 @@ RUN ln -s /usr/share/zoneinfo/Australia/Canberra /etc/localtime
 ADD ./apply-config.sh /usr/local/bin/apply-config.sh
 RUN chmod 755 /usr/local/bin/apply-config.sh
 
-# Add some CAs
-ADD ./ca-certs /usr/local/share/ca-certificates/ca-certs
-RUN update-ca-certificates
-
 # Set apt proxy location to aptproxy.ris.environment.gov.au
 ADD ./95proxies /etc/apt/apt.conf.d/95proxies
 RUN /usr/local/bin/apply-config.sh /etc/apt/apt.conf.d/95proxies
@@ -81,7 +77,11 @@ RUN chmod 755 /usr/bin/apt-key
 #    gpg --armor --export 3FE869A9 | apt-key add -
 
 # Perform a full apt update and then install the latest bash/wget/curl
-RUN apt-get update && apt-get install -yq bash wget curl git-core
+RUN apt-get update && apt-get install -yq bash wget curl git-core ca-certificates
+
+# Add some CAs
+ADD ./ca-certs /usr/local/share/ca-certificates/ca-certs
+RUN /usr/sbin/update-ca-certificates
 
 # Install GlusterFS (as per above)
 #RUN apt-get install -yq glusterfs-server
