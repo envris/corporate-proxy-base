@@ -36,6 +36,10 @@ RUN ln -s /usr/share/zoneinfo/Australia/Canberra /etc/localtime
 ADD ./apply-config.sh /usr/local/bin/apply-config.sh
 RUN chmod 755 /usr/local/bin/apply-config.sh
 
+# Add some CAs
+ADD ./ca-certs /usr/local/share/ca-certificates/ca-certs
+RUN update-ca-certificates
+
 # Set apt proxy location to aptproxy.ris.environment.gov.au
 ADD ./95proxies /etc/apt/apt.conf.d/95proxies
 RUN /usr/local/bin/apply-config.sh /etc/apt/apt.conf.d/95proxies
