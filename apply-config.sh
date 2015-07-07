@@ -8,17 +8,7 @@ CONF_PREFIX='@@'
 if [ ! -z "$ETCD_HOST" ] && [ ! -z "$ETCD_DIR" ]; then
     # Use etcd if host and directory is set
 
-    # Unset our https_proxy variables before we continue
-    x_HTTPS_PROXY=$HTTPS_PROXY
-    x_https_proxy=$https_proxy
-    unset HTTPS_PROXY
-    unset https_proxy
-
-    JSON_ARRAY=`curl --silent --cacert /certs/.etcd-ca/ca.crt --cert /certs/client.crt --key /certs/client.key.insecure -L https://${ETCD_HOST}:4001/v2/keys/${ETCD_DIR}?recursive=true | jshon -e node -e nodes`
-
-    # Reset our https_proxy variables
-    export HTTPS_PROXY=$x_HTTPS_PROXY
-    export https_proxy=$x_https_proxy
+    JSON_ARRAY=`curl --noproxy ${ETCD_HOST} --silent --cacert /certs/.etcd-ca/ca.crt --cert /certs/client.crt --key /certs/client.key.insecure -L https://${ETCD_HOST}:4001/v2/keys/${ETCD_DIR}?recursive=true | jshon -e node -e nodes`
 
     JSON_LENGTH=`echo $JSON_ARRAY | jshon -l`
     CONFIG_ARRAY=""
