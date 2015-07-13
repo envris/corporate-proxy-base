@@ -18,6 +18,7 @@ ENV __HTTP_PROXY_PORT CproxyportC
 ENV __HTTPS_PROXY_HOST CproxyhostC
 ENV __HTTPS_PROXY_PORT CproxyportC
 ENV __MAVEN_NO_PROXY CmavennoproxyC
+ENV CURL_NO_PROXY CcurlnoproxyC
 
 # Lets make the frontend non interactive
 ENV DEBIAN_FRONTEND noninteractive

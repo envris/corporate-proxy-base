@@ -19,6 +19,7 @@ docker pull ${REGISTRY}/${APPLICATION}:latest
 sed -i "s/CproxyhostC/your-proxy/" ./Dockerfile
 sed -i "s/CproxyportC/3128/" ./Dockerfile
 sed -i "s/CmavennoproxyC/*.example.com|*.sub.example.com|127.0.0.1/" ./Dockerfile
+sed -i "s/CcurlnoproxyC/127.0.0.1 example.com/" ./Dockerfile
 
 # Build the new image
 echo "Building a docker image..."
