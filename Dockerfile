@@ -88,8 +88,8 @@ RUN /usr/sbin/update-ca-certificates
 #RUN apt-get install -yq glusterfs-server
 
 # Git proxy config
-RUN git config --system http.proxy http://${HTTP_PROXY_HOST}:${HTTP_PROXY_PORT}
-RUN git config --system https.proxy http://${HTTPS_PROXY_HOST}:${HTTPS_PROXY_PORT}
+RUN git config --system http.proxy ${HTTP_PROXY}
+RUN git config --system https.proxy ${HTTPS_PROXY}
 
 # Start services
 CMD ["/bin/bash"]
