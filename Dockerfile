@@ -4,7 +4,7 @@
 ######################################################################
 
 # Set the base image to Ubuntu utopic
-FROM ubuntu:trsuty
+FROM ubuntu:trusty
 
 # File Author / Maintainer
 MAINTAINER Aaron Nicoli <aaronnicoli@gmail.com>
