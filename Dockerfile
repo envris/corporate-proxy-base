@@ -72,6 +72,10 @@ ADD ./apt-key-replacement /usr/bin/apt-key
 RUN /usr/local/bin/apply-config.sh /usr/bin/apt-key
 RUN chmod 755 /usr/bin/apt-key
 
+# Changed to old-releases (July 2015)
+RUN rm -f /etc/apt/sources.list
+ADD ./sources.list /etc/apt/sources.list
+
 # Setup the GlusterFS repo bits (if you want to use glusterfs client in your machines)
 #RUN echo "deb http://ppa.launchpad.net/gluster/glusterfs-3.6/ubuntu utopic main" >> /etc/apt/sources.list.d/glusterfs-3.6.list
 #RUN gpg --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys 3FE869A9 && \

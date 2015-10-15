@@ -1,0 +1,8 @@
+## EOL upgrade sources.list
+# Required
+deb http://old-releases.ubuntu.com/ubuntu/ utopic main restricted universe multiverse
+deb http://old-releases.ubuntu.com/ubuntu/ utopic-updates main restricted universe multiverse
+deb http://old-releases.ubuntu.com/ubuntu/ utopic-security main restricted universe multiverse
+
+# Optional
+#deb http://old-releases.ubuntu.com/ubuntu/ utopic-backports main restricted universe multiverse
