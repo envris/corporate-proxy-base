@@ -4,26 +4,9 @@
 ENV_PREFIX='__'
 CONF_PREFIX='@@'
 
-
-if [ ! -z "$ETCD_HOST" ] && [ ! -z "$ETCD_DIR" ]; then
-    # Use etcd if host and directory is set
-
-    JSON_ARRAY=`curl --noproxy "127.0.0.1 ${CURL_NO_PROXY}" --silent --cacert /certs/.etcd-ca/ca.crt --cert /certs/client.crt --key /certs/client.key.insecure -L https://${ETCD_HOST}:4001/v2/keys/${ETCD_DIR}?recursive=true | jshon -e node -e nodes`
-
-    JSON_LENGTH=`echo $JSON_ARRAY | jshon -l`
-    CONFIG_ARRAY=""
-    for i in $(seq 0 $((JSON_LENGTH-1))); do
-        CONFIG_ITEM=`echo $JSON_ARRAY | jshon -e $i -e key -u `=`echo $JSON_ARRAY | jshon -e $i -e value -u`
-        if [ "$i" -gt "0" ]; then
-            CONFIG_ARRAY=$CONFIG_ARRAY$'\n'
-        fi
-        CONFIG_ARRAY=$CONFIG_ARRAY${CONFIG_ITEM#/$ETCD_DIR/}
-    done
-else
-    # Build array of environment variables that fit the criteria
-    IFS=$'\n'
-    CONFIG_ARRAY=($(env | egrep '^'$ENV_PREFIX))
-fi
+# Build array of environment variables that fit the criteria
+IFS=$'\n'
+CONFIG_ARRAY=($(env | egrep '^'$ENV_PREFIX))
 
 while test $# -gt 0; do
     case "$1" in
