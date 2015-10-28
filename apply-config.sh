@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Specify our prefixes
-ENV_PREFIX='__'
+ENV_PREFIX=''
 CONF_PREFIX='@@'
 
 
