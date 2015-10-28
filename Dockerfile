@@ -13,21 +13,21 @@ MAINTAINER Aaron Nicoli <aaronnicoli@gmail.com>
 ################## BEGIN INSTALLATION ######################
 
 # Change these lines to specify your proxy location(s) [C...C]
-ENV __HTTP_PROXY_HOST CproxyhostC
-ENV __HTTP_PROXY_PORT CproxyportC
-ENV __HTTPS_PROXY_HOST CproxyhostC
-ENV __HTTPS_PROXY_PORT CproxyportC
-ENV __MAVEN_NO_PROXY CmavennoproxyC
+ENV HTTP_PROXY_HOST CproxyhostC
+ENV HTTP_PROXY_PORT CproxyportC
+ENV HTTPS_PROXY_HOST CproxyhostC
+ENV HTTPS_PROXY_PORT CproxyportC
+ENV MAVEN_NO_PROXY CmavennoproxyC
 ENV CURL_NO_PROXY CcurlnoproxyC
 
 # Lets make the frontend non interactive
 ENV DEBIAN_FRONTEND noninteractive
 
 # Setup the http/https proxy environment vars
-ENV HTTP_PROXY http://${__HTTP_PROXY_HOST}:${__HTTP_PROXY_PORT}
-ENV HTTPS_PROXY http://${__HTTPS_PROXY_HOST}:${__HTTPS_PROXY_PORT}
-ENV http_proxy http://${__HTTP_PROXY_HOST}:${__HTTP_PROXY_PORT}
-ENV https_proxy http://${__HTTPS_PROXY_HOST}:${__HTTPS_PROXY_PORT}
+ENV HTTP_PROXY http://${HTTP_PROXY_HOST}:${HTTP_PROXY_PORT}
+ENV HTTPS_PROXY http://${HTTPS_PROXY_HOST}:${HTTPS_PROXY_PORT}
+ENV http_proxy http://${HTTP_PROXY_HOST}:${HTTP_PROXY_PORT}
+ENV https_proxy http://${HTTPS_PROXY_HOST}:${HTTPS_PROXY_PORT}
 
 # Config the datetime
 RUN rm -f /etc/localtime
